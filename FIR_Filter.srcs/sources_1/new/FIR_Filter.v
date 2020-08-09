@@ -32,6 +32,9 @@ module FIR_Filter
         input wire clk,
         input wire rst,
 
+        input wire enable,
+        output wire samples_full,
+
         input wire [SAMPLE_WIDTH - 1 : 0] data_in,
         input wire data_in_wen,
 
@@ -44,7 +47,7 @@ module FIR_Filter
 
     reg [TAP_WIDTH - 1 : 0] filter_taps[(FILTER_LENGTH - 1)/2: 0];
     initial begin : pi_init_arrays
-        $readmemh("C:/Github_Repos/Zybo_Synthesizer_Experiments/EXTRA_FILES/Octave/Filter_Taps.hex", filter_taps);
+        $readmemh("C:/Github_Repos/FIR_Filter/EXTRA_FILES/Octave/Filter_Taps.hex", filter_taps);
     end
 
 
@@ -86,6 +89,8 @@ module FIR_Filter
     wire [SAMPLE_WIDTH - 1 : 0] fifo_o_A;
     wire [SAMPLE_WIDTH - 1 : 0] fifo_o_B;
     wire fifo_full;
+
+    assign samples_full = fifo_full;
 
     Shift_Register_DPBRAM #(
         .WIDTH(SAMPLE_WIDTH),
@@ -142,7 +147,7 @@ module FIR_Filter
             pipe_en[0] <= 0;
         end
         else begin
-            if(data_in_wen == 1) begin
+            if(data_in_wen == 1 && enable == 1) begin
                 filter_out_valid <= 0;
                 state_cntr <= FILTER_STATES;
             end
@@ -173,7 +178,7 @@ module FIR_Filter
             temp_tap <= 0;
         end
         else begin
-            if(data_in_wen == 1) begin
+            if(data_in_wen == 1 && enable == 1) begin
                 temp_tap <= 0;
             end
             else begin
@@ -187,8 +192,8 @@ module FIR_Filter
         end
     end
 
-    always @(data_in_wen, pipe_en, fifo_o_A, fifo_o_B) begin : p_comb_filter_sample_ctrl
-        if(data_in_wen == 1) begin
+    always @(data_in_wen, pipe_en, fifo_o_A, fifo_o_B, enable) begin : p_comb_filter_sample_ctrl
+        if(data_in_wen == 1 && enable == 1) begin
             temp_sample_A <= 0;
             temp_sample_B <= 0;
         end
@@ -221,7 +226,7 @@ module FIR_Filter
             filter_accum <= 0;
         end
         else begin
-            if(data_in_wen == 1) begin
+            if(data_in_wen == 1 && enable == 1) begin
                 filter_accum <= 0;
                 filter_accum_freeze <= filter_accum;
             end

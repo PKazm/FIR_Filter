@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="FIR_Filter_AXI_test_bd_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="FIR_Filter_AXI_test_bd_axi_vip_0_0_pkg" />
+            <top_module name="FIR_Filter_AXI_test_bd_tb" />
+            <top_module name="\$unit_FIR_Filter_AXI_test_bd_tb_sv " />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="std" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="7766148570fs"></ZoomEndTime>
+      <Cursor1Time time="1119865000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="98"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/dataw" type="array">
+      <obj_property name="ElementShortName">dataw[23:0]</obj_property>
+      <obj_property name="ObjectShortName">dataw[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/datar" type="array">
+      <obj_property name="ElementShortName">datar[23:0]</obj_property>
+      <obj_property name="ObjectShortName">datar[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/status_reg" type="array">
+      <obj_property name="ElementShortName">status_reg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">status_reg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/FIR_Filter_T1/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/interrupt" type="logic">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/AWADDR_reg" type="array">
+      <obj_property name="ElementShortName">AWADDR_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AWADDR_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/WDATA_reg" type="array">
+      <obj_property name="ElementShortName">WDATA_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WDATA_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/ARADDR_reg" type="array">
+      <obj_property name="ElementShortName">ARADDR_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ARADDR_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/FIR_Filter_AXI_0/inst/RDATA_reg" type="array">
+      <obj_property name="ElementShortName">RDATA_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDATA_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/axi_vip_0/M_AXI" type="protoinst">
+      <obj_property name="ElementShortName">M_AXI</obj_property>
+      <obj_property name="ObjectShortName">M_AXI</obj_property>
+      <obj_property name="children_use_element_short_name">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="EnumTransactionColorTable">0=blank 1=#D399FF 2=pink</obj_property>
+      <obj_property name="EnumTransactionValueTable">0=blank;1=Read;2=Write;3=Read/Write</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">turquoise</obj_property>
+      <obj_property name="Render_Data">/FIR_Filter_AXI_test_bd_tb/UUT_FIR_Filter_AXI_test_bd_wrapper/FIR_Filter_AXI_test_bd_i/axi_vip_0/M_AXI.readWriteSummary</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CellHeight">36</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

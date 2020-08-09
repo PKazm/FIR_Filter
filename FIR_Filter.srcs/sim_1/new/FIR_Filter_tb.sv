@@ -60,7 +60,7 @@ module FIR_Filter_tb();
 
     reg [SAMPLE_WIDTH - 1 : 0] samples[SAMPLE_COUNT - 1 : 0];
     initial begin
-        $readmemh("C:/Github_Repos/Zybo_Synthesizer_Experiments/EXTRA_FILES/Octave/freq_sweep.hex", samples);
+        $readmemh("C:/Github_Repos/FIR_Filter/EXTRA_FILES/Octave/freq_sweep.hex", samples);
     end
     
 
