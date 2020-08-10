@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07/12/2020 06:25:06 PM
+// Create Date: 08/09/2020 04:17:09 PM
 // Design Name: 
-// Module Name: FIR_Filter_tb
+// Module Name: FIR_Filter_T1_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,32 +20,38 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module FIR_Filter_tb();
+module FIR_Filter_T1_tb();
 
     localparam SAMPLE_WIDTH = 24;
     localparam TAP_WIDTH = 18;
-    localparam FILTER_LENGTH = 83;
-    localparam ACCUM_WIDTH = SAMPLE_WIDTH + 21;        // SAMPLE_WIDTH + Quantized Gain Bits
+    localparam FILTER_LENGTH = 57;
+    localparam ACCUM_WIDTH = SAMPLE_WIDTH + 18;        // SAMPLE_WIDTH + Quantized Gain Bits
     localparam ACCUM_LSHIFT = 0;
 
     reg clk = 0;
     reg rst = 0;
+
+    reg enable = 1;
+    wire samples_full;
 
     reg [SAMPLE_WIDTH - 1 : 0] data_in = 0;
     reg data_in_wen = 0;
     wire [SAMPLE_WIDTH - 1 : 0] data_out;
     wire data_out_valid;
 
-    FIR_Filter #(
+    FIR_Filter_T1 #(
         .SAMPLE_WIDTH(SAMPLE_WIDTH),
         .TAP_WIDTH(TAP_WIDTH),
         .FILTER_LENGTH(FILTER_LENGTH),
         .ACCUM_WIDTH(ACCUM_WIDTH),
         .ACCUM_LSHIFT(ACCUM_LSHIFT)
     )
-    UUT_FIR_Filter(
+    UUT_FIR_Filter_T1(
         .clk(clk),
         .rst(rst),
+
+        .enable(enable),
+        .samples_full(samples_full),
 
         .data_in(data_in),
         .data_in_wen(data_in_wen),
@@ -87,5 +93,4 @@ module FIR_Filter_tb();
     always @(posedge data_out_valid) begin
         filt_result = data_out;
     end
-
 endmodule

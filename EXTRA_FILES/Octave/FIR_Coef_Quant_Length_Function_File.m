@@ -38,19 +38,43 @@ function [valid, stop_freq, quant, quant_dec, pass_rip, stop_rip, pass_rip_good,
         
         b_int = int32((b*tap_max_val)/max(abs(b)));
         
-        
-        w_test = linspace(0,pi*edge(2),1000);
+        # check pass ripple
+        if(values(1) == 1)
+            # low pass
+            w_test = linspace(0,pi*edge(2),1000);
+        else
+            # high pass
+            w_test = linspace(pi*edge(3),pi,1000);
+        end
         h_pass_test = abs(freqz(b,1,w_test));
         ripple_err_pass = max(abs(h_pass_test - 1));
+        if(CONSOLE_OUT >= 2)
+            disp(["ripple pass : ", num2str(ripple_err_pass)]);
+        endif
         
-        w_test = linspace(pi*edge(3),pi,1000);
+        # check stop ripple
+        if(values(1) == 1)
+            # low pass
+            w_test = linspace(pi*edge(3),pi,1000);
+        else
+            # high pass
+            w_test = linspace(0,pi*edge(2),1000);
+        end
         h_stop_test = abs(freqz(b,1,w_test));
         ripple_err_stop = max(h_stop_test);
+        
+        if(CONSOLE_OUT >= 2)
+            disp(["ripple stop : ", num2str(ripple_err_stop)]);
+        endif
 
 
-        coef_sum = sum(b_int) * (1 + (ripple_err_pass));
+        coef_sum = abs(sum(b_int)) * (1 + (ripple_err_pass));
         coef_sum_log2 = log2(coef_sum);
         coef_sum_log2_dec = coef_sum_log2 - floor(coef_sum_log2);
+        
+        if(CONSOLE_OUT >= 2)
+            disp(["coefficient decimal: ", num2str(coef_sum_log2_dec)]);
+        end
         
         quant_good = 0;
         pass_good = 0;
@@ -91,7 +115,13 @@ function [valid, stop_freq, quant, quant_dec, pass_rip, stop_rip, pass_rip_good,
         
         if(save_run == 1)
             valid = 1;
-            stop_freq = edge(3);
+            if(values(1) == 1)
+                # low pass
+                stop_freq = edge(3);
+            else
+                # high pass
+                stop_freq = edge(2);
+            end
             pass_rip = ripple_err_pass;
             stop_rip = ripple_err_stop;
             pass_rip_good = pass_good;
@@ -102,8 +132,8 @@ function [valid, stop_freq, quant, quant_dec, pass_rip, stop_rip, pass_rip_good,
             #taps_int = b_int;
             tap_N = taps_N * 1;
 
-            if(CONSOLE_OUT == 1)
-                disp([num2str(taps_N), " : ", num2str(edge), " = ", num2str(quant)]);
+            if(CONSOLE_OUT >= 2)
+                disp([num2str(taps_N), " : ", num2str(edge(3)), " = ", num2str(quant)]);
             endif
         end
     end

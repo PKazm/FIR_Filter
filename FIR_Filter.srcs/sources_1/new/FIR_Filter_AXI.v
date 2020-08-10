@@ -110,7 +110,7 @@ module FIR_Filter_AXI
     wire [SAMPLE_WIDTH - 1 : 0] data_out;
     wire data_out_valid;
 
-    FIR_Filter #(
+    FIR_Filter_T1 #(
         .SAMPLE_WIDTH(SAMPLE_WIDTH),
         .TAP_WIDTH(TAP_WIDTH),
         .FILTER_LENGTH(FILTER_LENGTH),

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07/09/2020 11:39:47 PM
+// Create Date: 08/09/2020 04:14:41 PM
 // Design Name: 
-// Module Name: FIR_Filter
+// Module Name: FIR_Filter_T1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module FIR_Filter
+module FIR_Filter_T1
     #(
         parameter SAMPLE_WIDTH = 24,
         parameter TAP_WIDTH = 18,
@@ -242,5 +242,4 @@ module FIR_Filter
             end
         end
     end
-
 endmodule

@@ -13,8 +13,8 @@ STOP_AT_FIRST = 1;
 
 
 bandwidth = 48000/2;
-pass_freq = 1000;
-stop_freq = 3000;
+pass_freq = 3000;
+stop_freq = 1000;
 tap_width = 18;
 taps_start = 1;
 taps = 127;
@@ -28,11 +28,12 @@ processes = nproc - 4;
 
 pass_dec = pass_freq / bandwidth;
 stop_dec = stop_freq / bandwidth;
-stop_delta = stop_dec - pass_dec;
+stop_delta = abs(stop_dec - pass_dec);
 
 global tap_max_val = 2**(tap_width - 1) - 1;
-edges = [0, pass_dec, pass_dec + stop_step, 1];
-global values = [1, 1, 0, 0];
+#edges = [0, pass_dec, pass_dec + stop_step, 1];    # low pass
+edges = [0, pass_dec - stop_step, pass_dec, 1];     # high pass
+global values = [0, 0, 1, 1];
 global weights = [1, 1];
 w = linspace(0,2*pi,1000);
 
@@ -48,8 +49,15 @@ w = linspace(0,2*pi,1000);
 global edges_iterate = [];
 stop_freq = [];
 for i = 0 : stop_step : stop_delta
-    edges_iterate = [edges_iterate; edges(1), edges(2), edges(3) + i, edges(4)];
-    stop_freq = [stop_freq, edges(3) + i];
+    if(values(1) == 1)
+        # low pass
+        edges_iterate = [edges_iterate; edges(1), edges(2), edges(3) + i, edges(4)];
+        stop_freq = [stop_freq, edges(3) + i];
+    else
+        # high pass
+        edges_iterate = [edges_iterate; edges(1), edges(2) - i, edges(3), edges(4)];
+        stop_freq = [stop_freq, edges(2) - i];
+    end
 end
 #edges_iterate = edges;
 best_edges = edges;
@@ -59,12 +67,12 @@ best_taps = [];
 best_taps_int = [];
 best_quant = 0;
 best_quant_er = 0;
-best_pass_rip = 1;
-best_stop_rip = 1;
+best_pass_rip = 10;
+best_stop_rip = 10;
 best_pass_rip_good = 0;
 best_stop_rip_good = 0;
 
-
+#{
 function [valid, edges, tap_N, taps, taps_int, quant, quant_dec, pass_rip, stop_rip] = find_best_coef(taps_N)
     
     
@@ -145,7 +153,7 @@ function [valid, edges, tap_N, taps, taps_int, quant, quant_dec, pass_rip, stop_
     end
     
 endfunction
-
+#}
 
 find_best_coef_2 = @(A)FIR_Coef_Quant_Length_Function_File(
                                             CONSOLE_OUT,
@@ -168,7 +176,6 @@ while(found == 0)
     taps_index_end = taps_index + processes;
     if(taps_index_end > columns(taps_array))
         taps_index_end = columns(taps_array);
-        found = 1;
     endif
     batch_taps = taps_array(taps_index : taps_index_end);
     taps_index = taps_index_end;
@@ -196,11 +203,6 @@ while(found == 0)
             elseif(pass_rip(i) < best_pass_rip && stop_rip(i) < best_stop_rip)
                 new_best = 1;
             end
-            if(best_pass_rip < max_pass_ripple && best_stop_rip < max_stop_ripple)
-                if(STOP_AT_FIRST == 1)
-                    found = 1;
-                endif
-            endif
         end
         
         if(new_best == 1)
@@ -215,9 +217,20 @@ while(found == 0)
             #best_taps = taps(i);
             #best_taps_int = taps_int(i);
             best_tap_N = batch_taps(i);
+            if(CONSOLE_OUT >= 1)
+                disp(["accepted : ", num2str(quant(i)), "; ", num2str(pass_rip(i)), ", ", num2str(stop_rip(i))]);
+            end
         end
         
+        
+        if(best_pass_rip < max_pass_ripple && best_stop_rip < max_stop_ripple)
+            if(STOP_AT_FIRST == 1)
+                found = 1;
+            endif
+        endif
+        
         if(found == 1)
+            disp("found one");
             break;
         end
     endfor
@@ -225,8 +238,14 @@ while(found == 0)
     disp([num2str(best_quant_er), ", ", num2str(best_pass_rip), ", ", num2str(best_stop_rip)]);
     
     
-    if(found == 1)
-        best_edges = [edges(1), edges(2), best_stop_freq, edges(4)];
+    if(found == 1 || taps_index_end == columns(taps_array))
+        if(values(1) == 1)
+            # low pass
+            best_edges = [edges(1), edges(2), best_stop_freq, edges(4)];
+        else
+            # high pass
+            best_edges = [edges(1), best_stop_freq, edges(3), edges(4)];
+        end
         best_taps = remez(best_tap_N-1, best_edges, values);
         best_taps_int = int32((best_taps*tap_max_val)/max(abs(best_taps)));
         break

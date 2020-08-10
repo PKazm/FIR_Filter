@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="FIR_Filter_T1_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="FIR_Filter_T1_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="86451375001fs"></ZoomEndTime>
+      <Cursor1Time time="14988295000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/FIR_Filter_T1_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/data_in_wen" type="logic">
+      <obj_property name="ElementShortName">data_in_wen</obj_property>
+      <obj_property name="ObjectShortName">data_in_wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/data_out_valid" type="logic">
+      <obj_property name="ElementShortName">data_out_valid</obj_property>
+      <obj_property name="ObjectShortName">data_out_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/filt_result" type="array">
+      <obj_property name="ElementShortName">filt_result[23:0]</obj_property>
+      <obj_property name="ObjectShortName">filt_result[23:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/filter_accum_freeze" type="array">
+      <obj_property name="ElementShortName">filter_accum_freeze[44:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_accum_freeze[44:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/pipe_en" type="array">
+      <obj_property name="ElementShortName">pipe_en[4:0]</obj_property>
+      <obj_property name="ObjectShortName">pipe_en[4:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/temp_tap" type="array">
+      <obj_property name="ElementShortName">temp_tap[17:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_tap[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/temp_sample_A" type="array">
+      <obj_property name="ElementShortName">temp_sample_A[23:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_sample_A[23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/temp_sample_B" type="array">
+      <obj_property name="ElementShortName">temp_sample_B[23:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_sample_B[23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/mult_result" type="array">
+      <obj_property name="ElementShortName">mult_result[44:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_result[44:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/filter_accum" type="array">
+      <obj_property name="ElementShortName">filter_accum[44:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_accum[44:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/state_cntr" type="array">
+      <obj_property name="ElementShortName">state_cntr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">state_cntr[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_A" type="array">
+      <obj_property name="ElementShortName">addr_A[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_A[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_B" type="array">
+      <obj_property name="ElementShortName">addr_B[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_B[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/fifo_pos" type="array">
+      <obj_property name="ElementShortName">fifo_pos[6:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_pos[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_A_temp" type="array">
+      <obj_property name="ElementShortName">addr_A_temp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_A_temp[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_B_temp" type="array">
+      <obj_property name="ElementShortName">addr_B_temp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_B_temp[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_A_pos" type="array">
+      <obj_property name="ElementShortName">addr_A_pos[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_A_pos[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/addr_B_pos" type="array">
+      <obj_property name="ElementShortName">addr_B_pos[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_B_pos[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/filter_taps" type="array">
+      <obj_property name="ElementShortName">filter_taps[41:0][17:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_taps[41:0][17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/fifo_full" type="logic">
+      <obj_property name="ElementShortName">fifo_full</obj_property>
+      <obj_property name="ObjectShortName">fifo_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FIR_Filter_T1_tb/UUT_FIR_Filter_T1/Shift_Register_DPBRAM_0/data_buffer" type="array">
+      <obj_property name="ElementShortName">data_buffer[82:0][23:0]</obj_property>
+      <obj_property name="ObjectShortName">data_buffer[82:0][23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
